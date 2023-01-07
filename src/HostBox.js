@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Select, { components } from 'react-select'
 import { pokemonOptions, starOptions, teraOptions} from './data'
 import { Input } from '@chakra-ui/input'
+import { AddIcon } from '@chakra-ui/icons'
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from './firestore'
 
@@ -9,7 +10,7 @@ export const AddButton = (props) => {
 
     return (
         <button className='add-button' onClick={props.hostClick}>
-            ADD
+            <AddIcon boxSize={30}/>
         </button>
     )
 }

@@ -11,9 +11,9 @@ import { isMobile } from 'react-device-detect';
 import './index.css';
 
 // TODO: 
-    // SORT BY TIME POSTED
     // AUTO EXPIRE
     // CLEARFIELDS FUNCTION
+    // GET TERA RAID ICONS
 
 const FilterBox = (props) => {
 

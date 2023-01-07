@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2'
-import { getDocs, collection } from 'firebase/firestore'
-import { db } from './firestore'
+import { isMobile } from 'react-device-detect';
 
 export const RaidListing = (props) => {
 
@@ -9,8 +8,12 @@ export const RaidListing = (props) => {
     const imgUrl = 'https://img.pokemondb.net/sprites/scarlet-violet/normal/' + monName + '.png';
     const dateSince = new Date(Date.now() - props.data.postedAt);
 
+    const viewStyles = {
+        width: isMobile ? '90%' : '50%'
+    }
+
     return (
-        <div className="listing-bubble">
+        <div className="listing-bubble" style={viewStyles}>
             <img src={imgUrl} alt={props.data.pokemon} style={{height: '100%'}}/>
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 <b>{props.data.pokemon}</b>
@@ -45,8 +48,7 @@ export const ListingMap = (props) => {
     function filterResults(listing) {
         let valid = true;
         if (props.monFilter){
-            let str = props.monFilter;
-            valid = (listing.pokemon.includes(str) || listing.pokemon.includes(str.toLowerCase()));
+            valid = ( listing.pokemon.toLowerCase().includes(props.monFilter.toLowerCase()));
         }
         if (props.starFilter){
             valid = listing.stars === props.starFilter.value;
@@ -61,15 +63,17 @@ export const ListingMap = (props) => {
         <Scrollbars
          renderThumbVertical={() => <div style={{background:'#F0F0F0', borderRadius:'5px'}}/>}
         >
-            <ul style={{display: 'flex', flexDirection:'column', alignItems:'center'}}>
+            <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                 {
-                    props.data.filter(word => (
+                    props.data.sort((a, b) => {
+                        return b.postedAt - a.postedAt
+                    }).filter(word => (
                         filterResults(word)
                     )).map((listing) => {
-                        return <RaidListing data={listing}/>;
+                        return <RaidListing data={listing} key={listing.postedAt}/>;
                     })
                 }
-            </ul>
+            </div>
         </Scrollbars>      
     )
 }

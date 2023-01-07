@@ -5,12 +5,13 @@ import { Input } from '@chakra-ui/input'
 import { AddIcon } from '@chakra-ui/icons'
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from './firestore'
+import { isMobile } from 'react-device-detect'
 
 export const AddButton = (props) => {
 
     return (
         <button className='add-button' onClick={props.hostClick}>
-            <AddIcon boxSize={30}/>
+            <AddIcon boxSize={30} color='#F0F0F0'/>
         </button>
     )
 }
@@ -24,6 +25,10 @@ export const HostBox = (props) => {
     const [linkCodeValue, setLinkCodeValue] = useState(null);
      const handleChange = (event) => setLinkCodeValue(event.target.value);
     const [stratsSelect, setStratsSelect] = useState(null);
+
+    const viewStyles = {
+        width: isMobile ? '95%' : '60%'
+    }
 
     async function createListing () {
         if (pokemonSelect && starsSelect && teraTypeSelect && linkCodeValue) {
@@ -91,7 +96,7 @@ export const HostBox = (props) => {
     };
 
     return ( 
-        <div className='host-box'>
+        <div className='host-box' style={viewStyles}>
             <button className='host-x-button' onClick={props.hostClick}>x</button>
             
             <div className='host-box-section'>

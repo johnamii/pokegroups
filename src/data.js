@@ -19,116 +19,120 @@ export const EstablishedLinkTable = () => {
                 <col style={{background:'#5C0C00'}}/>
                 <col style={{background: '#22003A'}}/>
             </colgroup>
-            <tr>
-                <th>Link code</th>
-                <th>Pokemon 1</th>
-                <th>Pokemon 2</th>
-            </tr>
-            <tr>
-                <td> 4448-4448 </td>
-                <td> {genSprite('ditto')} Ditto </td>
-                <td> {genSprite('ditto')} Ditto </td>
-            </tr>
-            <tr>
-                <td> 0001-0004 </td>
-                <td> {genSprite('sprigatito')} Sprigatito </td>
-                <td> {genSprite('fuecoco')} Fuecoco </td>
-            </tr>
-            <tr>
-                <td> 0001-0007 </td>
-                <td> {genSprite('sprigatito')} Sprigatito </td>
-                <td> {genSprite('quaxly')} Quaxly </td>
-            </tr>
-            <tr>
-                <td> 0004-0007 </td>
-                <td> {genSprite('fuecoco')} Fuecoco </td>
-                <td> {genSprite('quaxly')} Quaxly </td>
-            </tr>
-            <tr>
-                <td> 0143-0114 </td>
-                <td> {genSprite('drifloon')} Drifloon </td>
-                <td> {genSprite('misdreavus')} Misdreavus </td>
-            </tr>
-            <tr>
-                <td> 0227-0140 </td>
-                <td> {genSprite('stunky')} Stunky </td>
-                <td> {genSprite('gulpin')} Gulpin </td>
-            </tr>
-            <tr>
-                <td> 0166-0167 </td>
-                <td> {genSprite('armarouge')} Armarouge </td>
-                <td> {genSprite('ceruledge')} Ceruledge </td>
-            </tr>
-            <tr>
-                <td> 0223-0223 </td>
-                <td> {genSprite('tauros')} Tauros (Fire) </td>
-                <td> {genSprite('tauros')} Tauros (Water) </td>
-            </tr>
-            <tr>
-                <td> 0316-0276 </td>
-                <td> {genSprite('larvitar')} Larvitar </td>
-                <td> {genSprite('bagon')} Bagon </td>
-            </tr>
-            <tr>
-                <td> 0370-0305 </td>
-                <td> {genSprite('deino')} Deino </td>
-                <td> {genSprite('dreepy')} Dreepy </td>
-            </tr>
-            <tr>
-                <td> 0313-0314 </td>
-                <td> {genSprite('oranguru')} Oranguru </td>
-                <td> {genSprite('passimian')} Passimian </td>
-            </tr>
-            <tr>
-                <td> 0319-0320 </td>
-                <td> {genSprite('stonjourner')} Stonjourner </td>
-                <td> {genSprite('eiscue')} Eiscue </td>
-            </tr>
-            <tr>
-                <td> 0337-0339 </td>
-                <td> {genSprite('skrelp')} Skrelp </td>
-                <td> {genSprite('clauncher')} Clauncher </td>
-            </tr>
-            <tr>
-                <td> 0376-0382 </td>
-                <td> {genSprite('great-tusk')} Great Tusk </td>
-                <td> {genSprite('iron-treads')} Iron Treads </td>
-            </tr>
-            <tr>
-                <td> 0377-0383 </td>
-                <td> {genSprite('scream-tail')} Scream Tail </td>
-                <td> {genSprite('iron-bundle')} Iron Bundle </td>
-            </tr>
-            <tr>
-                <td> 0378-0384 </td>
-                <td> {genSprite('brute-bonnet')} Brute Bonnet </td>
-                <td> {genSprite('iron-hands')} Iron Hands </td>
-            </tr>
-            <tr>
-                <td> 0379-0385 </td>
-                <td> {genSprite('flutter-mane')} Flutter Mane </td>
-                <td> {genSprite('iron-jugulis')} Iron Jugulis </td>
-            </tr>
-            <tr>
-                <td> 0380-0386 </td>
-                <td> {genSprite('slither-wing')} Slither Wing </td>
-                <td> {genSprite('iron-moth')} Iron Moth </td>
-            </tr>
-            <tr>
-                <td> 0381-0387 </td>
-                <td> {genSprite('sandy-shocks')} Sandy Shocks </td>
-                <td> {genSprite('iron-thorns')} Iron Thorns </td>
-            </tr>
-            <tr>
-                <td> 0397-0398 </td>
-                <td> {genSprite('roaring-moon')} Roaring Moon </td>
-                <td> {genSprite('iron-valiant')} Iron Valiant </td>
-            </tr>
-            <tr>
-                <td> 0399-0400 </td>
-                <td> {genSprite('koraidon')} Koraidon </td>
-                <td> {genSprite('miraidon')} Miraidon </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Link code</th>
+                    <th>Pokemon 1</th>
+                    <th>Pokemon 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> 4448-4448 </td>
+                    <td> {genSprite('ditto')} Ditto </td>
+                    <td> {genSprite('ditto')} Ditto </td>
+                </tr>
+                <tr>
+                    <td> 0001-0004 </td>
+                    <td> {genSprite('sprigatito')} Sprigatito </td>
+                    <td> {genSprite('fuecoco')} Fuecoco </td>
+                </tr>
+                <tr>
+                    <td> 0001-0007 </td>
+                    <td> {genSprite('sprigatito')} Sprigatito </td>
+                    <td> {genSprite('quaxly')} Quaxly </td>
+                </tr>
+                <tr>
+                    <td> 0004-0007 </td>
+                    <td> {genSprite('fuecoco')} Fuecoco </td>
+                    <td> {genSprite('quaxly')} Quaxly </td>
+                </tr>
+                <tr>
+                    <td> 0143-0114 </td>
+                    <td> {genSprite('drifloon')} Drifloon </td>
+                    <td> {genSprite('misdreavus')} Misdreavus </td>
+                </tr>
+                <tr>
+                    <td> 0227-0140 </td>
+                    <td> {genSprite('stunky')} Stunky </td>
+                    <td> {genSprite('gulpin')} Gulpin </td>
+                </tr>
+                <tr>
+                    <td> 0166-0167 </td>
+                    <td> {genSprite('armarouge')} Armarouge </td>
+                    <td> {genSprite('ceruledge')} Ceruledge </td>
+                </tr>
+                <tr>
+                    <td> 0223-0223 </td>
+                    <td> {genSprite('tauros')} Tauros (Fire) </td>
+                    <td> {genSprite('tauros')} Tauros (Water) </td>
+                </tr>
+                <tr>
+                    <td> 0316-0276 </td>
+                    <td> {genSprite('larvitar')} Larvitar </td>
+                    <td> {genSprite('bagon')} Bagon </td>
+                </tr>
+                <tr>
+                    <td> 0370-0305 </td>
+                    <td> {genSprite('deino')} Deino </td>
+                    <td> {genSprite('dreepy')} Dreepy </td>
+                </tr>
+                <tr>
+                    <td> 0313-0314 </td>
+                    <td> {genSprite('oranguru')} Oranguru </td>
+                    <td> {genSprite('passimian')} Passimian </td>
+                </tr>
+                <tr>
+                    <td> 0319-0320 </td>
+                    <td> {genSprite('stonjourner')} Stonjourner </td>
+                    <td> {genSprite('eiscue')} Eiscue </td>
+                </tr>
+                <tr>
+                    <td> 0337-0339 </td>
+                    <td> {genSprite('skrelp')} Skrelp </td>
+                    <td> {genSprite('clauncher')} Clauncher </td>
+                </tr>
+                <tr>
+                    <td> 0376-0382 </td>
+                    <td> {genSprite('great-tusk')} Great Tusk </td>
+                    <td> {genSprite('iron-treads')} Iron Treads </td>
+                </tr>
+                <tr>
+                    <td> 0377-0383 </td>
+                    <td> {genSprite('scream-tail')} Scream Tail </td>
+                    <td> {genSprite('iron-bundle')} Iron Bundle </td>
+                </tr>
+                <tr>
+                    <td> 0378-0384 </td>
+                    <td> {genSprite('brute-bonnet')} Brute Bonnet </td>
+                    <td> {genSprite('iron-hands')} Iron Hands </td>
+                </tr>
+                <tr>
+                    <td> 0379-0385 </td>
+                    <td> {genSprite('flutter-mane')} Flutter Mane </td>
+                    <td> {genSprite('iron-jugulis')} Iron Jugulis </td>
+                </tr>
+                <tr>
+                    <td> 0380-0386 </td>
+                    <td> {genSprite('slither-wing')} Slither Wing </td>
+                    <td> {genSprite('iron-moth')} Iron Moth </td>
+                </tr>
+                <tr>
+                    <td> 0381-0387 </td>
+                    <td> {genSprite('sandy-shocks')} Sandy Shocks </td>
+                    <td> {genSprite('iron-thorns')} Iron Thorns </td>
+                </tr>
+                <tr>
+                    <td> 0397-0398 </td>
+                    <td> {genSprite('roaring-moon')} Roaring Moon </td>
+                    <td> {genSprite('iron-valiant')} Iron Valiant </td>
+                </tr>
+                <tr>
+                    <td> 0399-0400 </td>
+                    <td> {genSprite('koraidon')} Koraidon </td>
+                    <td> {genSprite('miraidon')} Miraidon </td>
+                </tr>
+            </tbody>
         </table>
     )
 }

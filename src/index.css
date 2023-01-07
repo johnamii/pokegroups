@@ -30,20 +30,22 @@ code {
 }
 
 .header-nav-set{
-  height:10vh;
+  height: 100%;
   display: flex;
-  width: 50vw;
-  overflow-x:auto;
+  width: 100%;
+  
   margin-right: 2em;
 }
 
 .header-nav-button{
   color:#F0F0F0;
   text-decoration: none;
-  width: 25%;
+  width: fit-content;
+  
   display:flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .header-links{
@@ -69,7 +71,6 @@ code {
 }
 
 .default-link-codes{
-  width: 50vw;
   min-height: fit-content;
   background-color: #222224;
   color: #F0F0F0;
@@ -89,7 +90,6 @@ code {
 }
 
 .activity-box{
-  width: 50vw;
   max-height: 95vh;
   background-color: #222224;
   border: 3px solid #CE3838;
@@ -160,7 +160,6 @@ code {
   background-color: #F0F0F0;
   color:black;
   border-radius: 20em;
-  width: 25em;
   height: 5em;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -187,7 +186,6 @@ code {
 
 .host-box{
   position: fixed;
-  width: 60vw;
   height: 50%;
   top: 10em;
   padding: 1%;

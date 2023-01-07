@@ -7,10 +7,10 @@ import {RepeatIcon, EditIcon, ChevronUpIcon, ChevronDownIcon} from '@chakra-ui/i
 import {starOptions, teraOptions, EstablishedLinkTable } from './data'
 import Select from 'react-select'
 import { db } from './firestore'
+import { isMobile } from 'react-device-detect';
 import './index.css';
 
 // TODO: 
-    // KEY ARRAY MAP
     // SORT BY TIME POSTED
     // AUTO EXPIRE
     // CLEARFIELDS FUNCTION
@@ -71,6 +71,10 @@ const ScarletViolet = () => {
         fetchListings();
     }, [activeTab]);
 
+    const styleWidth = {
+        width: isMobile ? '90vw' : '50vw'
+    }
+
     const ActivityTab = (props) => {
         const [hovered, setHovered] = useState(false);
 
@@ -97,7 +101,7 @@ const ScarletViolet = () => {
         <div className='app-body'>
             <h1>Pokemon Scarlet and Violet</h1>
 
-            <div className='default-link-codes' onClick={() => setEstLinkBox(!estLinkBox)}>
+            <div className='default-link-codes' onClick={() => setEstLinkBox(!estLinkBox)} style={styleWidth}>
                 <div style={{display: 'flex', alignItems:'center', justifyContent: 'space-between', width: '100%'}}>
                     {estLinkBox ? <ChevronUpIcon boxSize={30}/> : <ChevronDownIcon boxSize={30}/>}
                     <h3>Established Link Codes</h3>
@@ -108,7 +112,7 @@ const ScarletViolet = () => {
                 }
             </div>
 
-            <div className='activity-box'>
+            <div className='activity-box' style={styleWidth}>
                 <h3>Shared Link Codes</h3>
 
                 <div className='activity-selector'>

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { addDoc, collection, getFirestore } from 'firebase/firestore'
-import { db } from './firestore'
+import React from 'react';
+import { isMobile } from 'react-device-detect'
 import './index.css';
 
 
@@ -15,15 +14,19 @@ export const HomePage = () => {
     return (
         <div className='app-body'>
             <h1>Welcome to PokeGroups!</h1>
-            <h3>Your hub to collaborate on Pokemon Games</h3>
-            <p>
-
-                This website is a work in progress. To get started, open the Scarlet / Violet
-                tab and start joining raids.
-                <br/>
-                More coming soon!
-            </p>
-            <div style={{height:'150vh'}}></div>
+            <h3>A hub to collaborate on Pokemon Games</h3>
+            <div style={{width: isMobile ? '90%' : '50%', textAlign:'center'}}>
+                <p>
+                    To get started, open the 
+                    <a href="/sv" > Scarlet / Violet </a> tab and start joining raids.
+                    <br/>
+                    <br/>
+                    This website is a work in progress.
+                    More coming soon!
+                </p>
+            </div>
+            
+            
         </div>
     )
 }
@@ -33,6 +36,9 @@ export const PokemonGO = () => {
     return (
         <div className='app-body'>
         <h1>Pokemon GO</h1>
+        <br/>
+        <br/>
+        <p>Coming soon...</p>
         </div>
     )
 }
@@ -42,6 +48,9 @@ export const Community = () => {
     return (
         <div className='app-body'>
         <h1>Community</h1>
+        <br/>
+        <br/>
+        <p>Coming soon...</p>
         </div>
     )
 }
@@ -51,7 +60,7 @@ export const About = () => {
     return (
         <div className="app-body">
             <h1>About</h1>
-            <div style={{width:'50%', fontSize:'120%'}}>
+            <div style={{width:'70%', fontSize:'120%'}}>
                 <p>
                     Hi, I'm John. I made this website because I've been been loving Pokemon Scarlet and Violet,
                     but I've found frustration with finding and joining raids online. It's very inconsistent
@@ -77,6 +86,9 @@ export const Account = () => {
     return (
         <div className="app-body">
             <h1>Account</h1>
+            <br/>
+            <br/>
+            <p>Coming soon...</p>
         </div>
     )
 }

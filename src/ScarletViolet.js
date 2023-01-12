@@ -11,30 +11,33 @@ import { isMobile } from 'react-device-detect';
 import './index.css';
 
 // TODO: 
-    // AUTO EXPIRE
+    // ACCOUNT CREATION
+        // users may only post if logged in
+    // FIX PERMISSIONS / FIRESTORE RULES
+    // AUTO EXPIRE LISTINGS
     // CLEARFIELDS FUNCTION
     // GET TERA RAID ICONS
+    // UX BUTTON CLICKING AND FLOW
+    // GET SEARCH FILTERS WORKING TOGETHER
 
 const FilterBox = (props) => {
 
     return (
         <div className='filter-box'>
-            <div style={{width:'75%', marginLeft:'10%'}}>
-                <h3 style={{color:'#F0F0F0'}}>Stars</h3>
-                <Select
-                name='stars'
-                options={starOptions}
-                onChange={(val) => props.changeStars(val)}
-                isClearable
-                />
-                <h3 style={{color:'#F0F0F0'}}>Tera Type</h3>
-                <Select
-                name='teraType'
-                options={teraOptions}
-                onChange={(val) => props.changeTera(val)}
-                isClearable
-                />
-            </div>
+            <h3 style={{color:'#F0F0F0'}}>Stars: </h3>
+            <Select
+            name='stars'
+            options={starOptions}
+            onChange={(val) => props.changeStars(val)}
+            isClearable
+            />
+            <h3 style={{color:'#F0F0F0'}}>Tera Type: </h3>
+            <Select
+            name='teraType'
+            options={teraOptions}
+            onChange={(val) => props.changeTera(val)}
+            isClearable
+            />
         </div>
     )
 }
@@ -55,7 +58,7 @@ const ScarletViolet = () => {
         console.log('Refreshing Listings.');
 
         if (activeTab === "Raid"){
-            const docRef = getDocs(collection(db, "raids")).then(snapshot => {
+            getDocs(collection(db, "raids")).then(snapshot => {
                 setData(snapshot.docs.map(doc => doc.data()));
             })
         }
@@ -99,7 +102,13 @@ const ScarletViolet = () => {
 
     return (
         <div className='app-body'>
-            <h1>Pokemon Scarlet and Violet</h1>
+            <div className="banner-container" style={{width: isMobile ? '90%' : '50%'}}>
+                <img 
+                 src="/sv-banner.png" 
+                 alt="Pokemon Scarlet and Violet"
+                 style={{width:'97%', borderRadius:'1em'}}
+                />
+            </div>
 
             <div className='default-link-codes' onClick={() => setEstLinkBox(!estLinkBox)} style={styleWidth}>
                 <div style={{display: 'flex', alignItems:'center', justifyContent: 'space-between', width: '100%'}}>
@@ -117,19 +126,29 @@ const ScarletViolet = () => {
 
                 <div className='activity-selector'>
                     <ActivityTab name='Raid'/>
+                    <ActivityTab name='Battle'/>
                     <ActivityTab name='Trade'/>
                     <ActivityTab name='Union Circle'/>
                 </div>
 
-                <div className='activity-search-div'>
-                    <Input
-                     placeholder='Pokemon...'
-                     fontSize="120%"
-                     className='input-search-bar'
-                     onChange={handleChange}
-                    />
-                    <div className='activity-search-button' onClick={fetchListings}><RepeatIcon/></div>
-                    <div className='activity-search-button' onClick={() => setFilterBox(!filterBox)}><EditIcon/></div>
+                <div >
+                    <div className='activity-search-div'>
+                        <Input
+                        placeholder='Pokemon...'
+                        fontSize="1.5em"
+                        className='input-search-bar'
+                        onChange={handleChange}
+                        />
+                        <div className='activity-search-button' onClick={() => fetchListings}><RepeatIcon/></div>
+                        <div className='activity-search-button' onClick={() => setFilterBox(!filterBox)}><EditIcon/></div>
+                    </div>
+                    { 
+                        filterBox && 
+                        <FilterBox 
+                        changeStars={(val) => setStarFilter(val)} 
+                        changeTera={(val) => setTeraFilter(val)}
+                        /> 
+                    }
                 </div>
 
                 <div className='selected-listings'>
@@ -142,14 +161,6 @@ const ScarletViolet = () => {
                 </div>
                 
             </div>
-
-            { 
-                filterBox && 
-                <FilterBox 
-                 changeStars={(val) => setStarFilter(val)} 
-                 changeTera={(val) => setTeraFilter(val)}
-                /> 
-            }
 
             { hosting ? <HostBox hostClick={() => setHosting(false)}/> : <AddButton hostClick={() => setHosting(true)}/> }
 

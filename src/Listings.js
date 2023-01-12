@@ -6,7 +6,13 @@ export const RaidListing = (props) => {
 
     const monName = props.data.pokemon.toLowerCase().replace(/\s/g , "-");
     const imgUrl = 'https://img.pokemondb.net/sprites/scarlet-violet/normal/' + monName + '.png';
-    const dateSince = new Date(Date.now() - props.data.postedAt);
+    const timeSince = new Date(Date.now() - props.data.postedAt);
+    const minSince = Math.floor(timeSince.getTime() / 1000 / 60);
+    //console.log(minSince + " minutes since " + props.data.pokemon + " was posted");
+
+    if (minSince > 60){
+
+    }
 
     const viewStyles = {
         width: isMobile ? '90%' : '50%'
@@ -24,9 +30,9 @@ export const RaidListing = (props) => {
                 <p>Link Code:</p>
                 <h2 style={{margin:-10}}>{props.data.linkCode}</h2>
                 {
-                    dateSince.getMinutes() < 3 || dateSince.getDay() === 0
+                    minSince < 5
                     ?
-                    <p>Posted <b>{dateSince.getMinutes()}m, {dateSince.getSeconds()}s</b> ago.</p>
+                    <p>Posted <b>{timeSince.getMinutes()}m, {timeSince.getSeconds()}s</b> ago.</p>
                     :
                     <p><b>Expired</b></p>
                 }

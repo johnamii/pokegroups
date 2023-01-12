@@ -32,7 +32,7 @@ export const HostBox = (props) => {
 
     async function createListing () {
         if (pokemonSelect && starsSelect && teraTypeSelect && linkCodeValue) {
-            console.log("Creating listing of: " + pokemonSelect.label + ', ' + starsSelect.value + ' stars');
+            console.log("Creating listing of: " + pokemonSelect.label + ', ' + starsSelect.value + ' stars, ' + 'tera ' + teraTypeSelect.label );
 
             const docRef = await addDoc(collection(db, "raids"), {
                 host: 'John',
@@ -56,7 +56,6 @@ export const HostBox = (props) => {
     function clearFields() {
         console.log('Clearing fields.');
         setPokemonSelect(null);
-        setStarsSelect(null);
         setStarsSelect(null);
         setTeraTypeSelect(null);
         setLinkCodeValue(null);
@@ -119,7 +118,7 @@ export const HostBox = (props) => {
                     name='stars'
                     options={starOptions}
                     styles={selectStyle}
-                    onChange={(value) => setStarsSelect(value.label)}
+                    onChange={(val) => setStarsSelect(val)}
                     />
                 </div>
                 
